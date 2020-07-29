@@ -4,6 +4,8 @@ import TextareaAutosize from 'react-textarea-autosize';
 import Card from "@material-ui/core/Card";
 import Button from "@material-ui/core/Button";
 import './ActionButton.css';
+import {connect} from 'react-redux';
+import {addList, addCard} from '../actions';
 
 class ActionButton extends Component {
 
@@ -30,6 +32,33 @@ class ActionButton extends Component {
         })
     }
 
+    handleAddList = e => {
+        const {dispatch} = this.props;
+        const {text} = this.state;
+
+        if (text) {
+            this.setState ({
+                text: ""
+            })
+            dispatch(addList(text))
+        }
+
+        return;
+    }
+    handleAddCard = e => {
+        const {dispatch,listID} = this.props;
+        const {text} = this.state;
+
+        if (text) {
+            this.setState ({
+                text: ""
+            })
+            dispatch(addCard(listID,text))
+        }
+
+        return;
+    }
+
     renderForm = () => {
         const {list} = this.props;
 
@@ -41,7 +70,7 @@ class ActionButton extends Component {
                 <TextareaAutosize className="textarea" placeholder={placeholder} autoFocus onBlur={this.closeForm} value={this.state.text} onChange={this.handleChange}/>
             </Card>
             <div className="formButtonGroup">
-                <Button variant="contained" className="addBtn">
+                <Button variant="contained" className="addBtn" onMouseDown={list? this.handleAddList : this.handleAddCard}>
                 {buttonTitle}
                 </Button>
                 <Icon className="closeIcon">close</Icon>
@@ -69,4 +98,4 @@ class ActionButton extends Component {
 
 };
 
-export default ActionButton;
+export default connect() (ActionButton);

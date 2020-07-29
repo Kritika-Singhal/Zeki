@@ -12,7 +12,7 @@ class App extends Component {
       <h4>Hello Zeki</h4>
       <div className="listContainer">
         { lists.map(list => (
-          <ZekiList key={list.id} title={list.title} cards={list.cards}/>
+          <ZekiList listID={ list.id} key={list.id} title={list.title} cards={list.cards}/>
         ))}
          <ActionButton list/>
       </div>
