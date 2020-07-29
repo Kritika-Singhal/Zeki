@@ -1,3 +1,7 @@
 .App {
-  margin: 10px;
+  padding: 8px;
+}
+.listContainer {
+  display: flex;
+  flex-direction: row;
 }

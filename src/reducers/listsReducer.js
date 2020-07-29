@@ -1,6 +1,6 @@
 const initialState = [
     {
-        id: 1,
+        id: 0,
         title: "Monday" ,
         cards: [
             {
@@ -12,7 +12,21 @@ const initialState = [
                 text: "Prepare notes"
             }
         ]
-    }
+    },
+    {
+        id: 1,
+        title: "Tuesday" ,
+        cards: [
+            {
+                id: 1,
+                text: "Check time table"
+            },
+            {
+                id: 2,
+                text: "Prepare notes"
+            }
+        ]
+    },
 
 ]
 

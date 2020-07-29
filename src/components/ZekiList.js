@@ -1,12 +1,14 @@
 import React from "react";
-import './List.css';
+import './ZekiList.css';
 import ZekiCard from './ZekiCard';
 
-const List = ({title}) => {
+const List = ({title,cards}) => {
     return (
         <div className="container">
             <h4>{title}</h4>
-            <ZekiCard/>
+            {cards.map(card => (
+                <ZekiCard text={card.text} />
+            ))}
         </div>
         
     )

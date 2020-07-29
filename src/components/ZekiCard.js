@@ -4,12 +4,12 @@ import CardContent from '@material-ui/core/CardContent';
 import Typography from '@material-ui/core/Typography';
 import './ZekiCard.css';
 
-const ZekiCard = () =>{
+const ZekiCard = ({text}) =>{
     return (
-        <Card className="root">
-            <CardContent>
-                <Typography className="title">
-                    Word of the Day
+        <Card className="cardContainer">
+            <CardContent >
+                <Typography className="title" gutterBottom>
+                    {text}
                 </Typography>
             </CardContent>
         </Card>

@@ -1,6 +1,6 @@
-import React from 'react';
+import React,{Component} from 'react';
 import './App.css';
-import List from './List';
+import ZekiList from './ZekiList';
 import {connect} from "react-redux";
 
 class App extends Component {
@@ -8,8 +8,13 @@ class App extends Component {
     const { lists } = this.props;
     return (
     <div className="App">
-      <p>Hello Zeki</p>
-      <List title='TODO'/>
+      <h4>Hello Zeki</h4>
+      <div className="listContainer">
+        { lists.map(list => (
+          <ZekiList title={list.title} cards={list.cards}/>
+        ))}
+      </div>
+      
     </div>
     );
   }
